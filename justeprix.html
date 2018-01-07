@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Justeprix</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="justeprix.css">
+</head>
+  <body>
+    <header>
+      <nav class="navbar navbar-inverse bg-inverse">
+        <button class="btn btn-success" type="button" id="btn-easy">Easy</button>
+        <button class="btn btn-warning" type="button" id="btn-normal">Normal</button>
+        <button class="btn btn-danger" type="button" id="btn-hard">Hard</button>
+      </nav>
+    </header>
+    <main class="container">
+      <h2>Minimum : <span class="text-primary" id="minimum"></span></h2>
+      <h2>Maximum : <span class="text-primary" id="maximum"></span></h2>
+      <h2>Temps restant : <span class="text-primary" id="time"></span></h2>
+      <h2>Coups restant : <span class="text-primary" id="coups"></span></h2>
+      <div class="container">
+        <h2><span id="hint"></span></h2>
+          <input class="" type="numeric" placeholder="number" id="input-value">
+          <button class="btn btn-success" type="submit" id="btn-validate">Try</button>
+      </div>    
+      </main>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="justeprix.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  </body>
+</html>
