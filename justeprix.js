@@ -74,12 +74,14 @@ game = {
 
   SetValue: function() {
     s.nbCoup = 0;
+    s.status = '';
     s.affMin.innerText = s.minimum[s.lvlSelect];
     s.affMax.innerText = s.maximum[s.lvlSelect];
     s.affCoups.innerText = s.coups[s.lvlSelect] - s.nbCoup;
     s.ran = self.GenerRan(s.minimum[s.lvlSelect], s.maximum[s.lvlSelect]);
     console.log("Solution : " + s.ran);
     s.affHint.innerText = s.status;
+    self.EnableAff();
   },
 
   AffValue: function() {
@@ -95,6 +97,13 @@ game = {
     s.inValue.disabled = true;
     s.inValue.hidden = true;
   },
+
+  EnableAff: function () {
+        s.btnTry.disabled = false;
+        s.btnTry.hidden = false;
+        s.inValue.disabled = false;
+        s.inValue.hidden = false;
+      },
 
   GenerRan: function(min, max) {
     return Math.floor((Math.random() * max) + min);
