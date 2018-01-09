@@ -12,10 +12,12 @@ game = {
     nbCoup:0,
     status:'',
 
+    secondsLeft: 0,
+    timer: undefined,
+
     level:['Easy','Normal','Hard'],
     minimum:[1,1,1],
     maximum:[100,10000,1000000],
-    time:[3,2,1], // temps en minutes
     coups:[10,7,5],
 
 
@@ -107,7 +109,29 @@ game = {
 
   GenerRan: function(min, max) {
     return Math.floor((Math.random() * max) + min);
-  }
+  },
+
+  Start: function(secondsLeft) {
+    s.secondsLeft = secondsLeft;
+    s.timer = setInterval(self.Tick.bind(self), 1000);
+},
+
+Tick: function() {
+    if(s.secondsLeft === 0)
+        self.Stop()
+    else {
+        s.affTime.innerHTML = --s.secondsLeft;
+    }
+},
+
+Stop: function() {
+    clearInterval(s.timer);
+    s.status = "Temps ecouler";
+    s.affHint.innerText = s.status;
+    s.affHint.className = "bg-danger";             
+    self.DisableAff();
+}
+
 
 };
 
