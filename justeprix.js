@@ -112,6 +112,7 @@ game = {
   },
 
   Start: function(secondsLeft) {
+    clearInterval(s.timer);
     s.secondsLeft = secondsLeft;
     s.timer = setInterval(self.Tick.bind(self), 1000);
 },
