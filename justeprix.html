@@ -7,29 +7,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link rel="stylesheet" href="justeprix.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="./justeprix.css">
 </head>
   <body>
     <header>
       <nav class="navbar navbar-inverse bg-inverse">
-        <button onClick="game.Start(180);" class="btn btn-success" type="button" id="btn-easy">Facile</button>
-        <button onClick="game.Start(120);" class="btn btn-warning" type="button" id="btn-normal">Normal</button>
-        <button onClick="game.Start(60);" class="btn btn-danger" type="button" id="btn-hard">Difficile</button>
+        <button onClick="game.Start(180);" class=" navbar-btn btn btn-success" type="button" id="btn-easy">Facile</button>
+        <button onClick="game.Start(120);" class=" navbar-btn btn btn-warning" type="button" id="btn-normal">Normal</button>
+        <button onClick="game.Start(60);" class=" navbar-btn btn btn-danger" type="button" id="btn-hard">Difficile</button>
       </nav>
     </header>
     <main class="container">
-      <h2>Minimum : <span class="text-primary" id="minimum"></span></h2>
-      <h2>Maximum : <span class="text-primary" id="maximum"></span></h2>
+      <h2 class="alert alert-info" id="startInfo">Choisisez un niveau de difficulté pour commencer</h2>
+      <h2>Trouver le juste prix entre <span class="text-primary" id="minimum">-</span> et <span class="text-primary" id="maximum">-</span></h2>
       <h2>Temps restant : <span class="text-primary" id="time"></span></h2>
       <h2>Coups restant : <span class="text-primary" id="coups"></span></h2>
       <div class="container">
         <h2><span id="hint"></span></h2>
-          <input class="" type="numeric" placeholder="number" id="input-value">
-          <button class="btn btn-success" type="submit" id="btn-validate">Try</button>
+        <div class="input-group">
+            <input class="form-control" type="numeric" placeholder="number" id="input-value">
+            <span class="input-group-btn">
+                <button class="btn btn-success" type="submit" id="btn-validate">Try</button>
+              </span>
+          </div>
       </div>    
       </main>
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

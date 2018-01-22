@@ -31,6 +31,7 @@ game = {
     affTime:document.getElementById('time'),
     affCoups:document.getElementById('coups'),
     affHint:document.getElementById('hint'),
+    affRule:document.getElementById('startInfo'),
     
     inValue:document.getElementById('input-value'),
     btnTry:document.getElementById('btn-validate'),
@@ -57,19 +58,21 @@ game = {
       valueInput = s.inValue.value;
       if (s.nbCoup >= s.coups[s.lvlSelect] - 1) {
             s.status = "C'est perdu";
-            s.affHint.className = "bg-danger";             
+            s.affHint.className = "alert alert-danger";             
             self.DisableAff();
         } else if (valueInput != s.ran) {
             s.nbCoup++;
             if (valueInput < s.ran) {
-                s.status = "c'est plus"
+                s.affHint.className = "alert alert-warning";
+                s.status = "C'est plus"
             } else {
-                s.status = "c'est moins";
+                s.affHint.className = "alert alert-warning";
+                s.status = "C'est moins";
             }
         } else {
             s.win = true;
             s.status = "C'est Gagnger";
-            s.affHint.className = "bg-success";
+            s.affHint.className = "alert alert-success";
             self.DisableAff();
         }
         self.AffValue();
@@ -84,6 +87,8 @@ game = {
     s.affMax.innerText = s.maximum[s.lvlSelect];
     s.affCoups.innerText = s.coups[s.lvlSelect] - s.nbCoup;
     s.ran = self.GenerRan(s.minimum[s.lvlSelect], s.maximum[s.lvlSelect]);
+    s.affRule.hidden = true;
+    s.affHint.className = "";
     console.log("Solution : " + s.ran);
     s.affHint.innerText = s.status;
     self.EnableAff();
@@ -132,12 +137,12 @@ Stop: function() {
     clearInterval(s.timer);
     if (s.win == true) {
         s.status = "C'est Gagnger";
-        s.affHint.className = "bg-success";
+        s.affHint.className = "alert alert-success";
         self.DisableAff(); 
     } else {
         s.status = "Temps ecouler";
         s.affHint.innerText = s.status;
-        s.affHint.className = "bg-danger";                         
+        s.affHint.className = "alert alert-danger";                         
     }
     self.DisableAff();
 }
