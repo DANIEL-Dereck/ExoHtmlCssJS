@@ -11,6 +11,7 @@ game = {
     lvlSelect:0,
     nbCoup:0,
     status:'',
+    win:false, 
 
     secondsLeft: 0,
     timer: undefined,
@@ -55,7 +56,7 @@ game = {
     s.btnTry.addEventListener('click', function(){
       valueInput = s.inValue.value;
       if (s.nbCoup >= s.coups[s.lvlSelect] - 1) {
-            s.status = "c'est perdu";
+            s.status = "C'est perdu";
             s.affHint.className = "bg-danger";             
             self.DisableAff();
         } else if (valueInput != s.ran) {
@@ -66,7 +67,8 @@ game = {
                 s.status = "c'est moins";
             }
         } else {
-            s.status = "c'est Gagnger";
+            s.win = true;
+            s.status = "C'est Gagnger";
             s.affHint.className = "bg-success";
             self.DisableAff();
         }
@@ -75,6 +77,7 @@ game = {
   },
 
   SetValue: function() {
+    s.win = false;
     s.nbCoup = 0;
     s.status = '';
     s.affMin.innerText = s.minimum[s.lvlSelect];
@@ -127,9 +130,15 @@ Tick: function() {
 
 Stop: function() {
     clearInterval(s.timer);
-    s.status = "Temps ecouler";
-    s.affHint.innerText = s.status;
-    s.affHint.className = "bg-danger";             
+    if (s.win == true) {
+        s.status = "C'est Gagnger";
+        s.affHint.className = "bg-success";
+        self.DisableAff(); 
+    } else {
+        s.status = "Temps ecouler";
+        s.affHint.innerText = s.status;
+        s.affHint.className = "bg-danger";                         
+    }
     self.DisableAff();
 }
 
