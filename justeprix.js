@@ -5,7 +5,6 @@ var game;
 var s, self;
 
 game = {
-
   settings: {
     ran:0,
     lvlSelect:0,
