@@ -31,6 +31,7 @@ game = {
     affCoups:document.getElementById('coups'),
     affHint:document.getElementById('hint'),
     affRule:document.getElementById('startInfo'),
+    affReRule:document.getElementById('reInfo'),
     
     inValue:document.getElementById('input-value'),
     btnTry:document.getElementById('btn-validate'),
@@ -57,7 +58,8 @@ game = {
       valueInput = s.inValue.value;
       if (s.nbCoup >= s.coups[s.lvlSelect] - 1) {
             s.status = "C'est perdu";
-            s.affHint.className = "alert alert-danger";             
+            s.affHint.className = "alert alert-danger";
+            s.affReRule.hidden = false;              
             self.DisableAff();
         } else if (valueInput != s.ran) {
             s.nbCoup++;
@@ -72,6 +74,7 @@ game = {
             s.win = true;
             s.status = "C'est Gagnger";
             s.affHint.className = "alert alert-success";
+            s.affReRule.hidden = false;              
             self.DisableAff();
         }
         self.AffValue();
@@ -88,6 +91,7 @@ game = {
     s.ran = self.GenerRan(s.minimum[s.lvlSelect], s.maximum[s.lvlSelect]);
     s.affRule.hidden = true;
     s.affHint.className = "";
+    s.affReRule.hidden = true;          
     console.log("Solution : " + s.ran);
     s.affHint.innerText = s.status;
     self.EnableAff();
@@ -137,11 +141,13 @@ Stop: function() {
     if (s.win == true) {
         s.status = "C'est Gagnger";
         s.affHint.className = "alert alert-success";
+        s.affReRule.hidden = false;              
         self.DisableAff(); 
     } else {
         s.status = "Temps ecouler";
         s.affHint.innerText = s.status;
         s.affHint.className = "alert alert-danger";                         
+        s.affReRule.hidden = false;              
     }
     self.DisableAff();
 }
